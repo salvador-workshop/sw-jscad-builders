@@ -5,7 +5,7 @@
  * @namespace builders.roofs
  */
 
-const roofBuilder = ({ lib, swLib }) => {
+const roofBuilder = ({ lib, swLib, swFamilies }) => {
     const { union, subtract } = lib.booleans;
     const { triangle, cuboid } = lib.primitives;
     const { rotate, align, translate, mirror } = lib.transforms;
@@ -197,7 +197,7 @@ const roofBuilder = ({ lib, swLib }) => {
 
         // Roof Assembly
 
-        const trFamily = swLib.families[`trim${trimFamily}`].buildTrimFamily({ unitHeight: trimUnitSize[1], unitDepth: trimUnitSize[0] });
+        const trFamily = swFamilies[`trim${trimFamily}`].buildTrimFamily({ unitHeight: trimUnitSize[1], unitDepth: trimUnitSize[0] });
         const bottomTrimProfile = trFamily.crown.extraSmall;
 
         const bTrimRafterSpecs = [2 * trimUnitSize[0] + roofHypot, 2 * trimUnitSize[0] + axisSpan];

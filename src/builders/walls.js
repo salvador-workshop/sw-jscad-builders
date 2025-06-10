@@ -5,14 +5,14 @@
  * @namespace builders.walls
  */
 
-const wallBuilder = ({ lib, swLib }) => {
+const wallBuilder = ({ lib, swLib, swFamilies }) => {
     const { union, subtract } = lib.booleans
     const { align } = lib.transforms
     const { cuboid } = lib.primitives
     const { measureDimensions, measureBoundingBox } = lib.measurements;
 
     const { moulds } = swLib.details
-    const { trimAranea } = swLib.families
+    const { trimAranea } = swFamilies
     const { PHI_INV } = swLib.core.constants
 
     const crownTrim = ({ totalThickness, totalLength, trimProfile }) => {
