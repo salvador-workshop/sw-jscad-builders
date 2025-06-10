@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: index.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,37 +17,41 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: index.js</h1>
 
     
 
 
 
     
-
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
     <section>
-        <article><h1>sw-jscad-builders</h1>
-<p>Builder functions for Salvador Workshop's JSCAD utilities and toolkit.</p></article>
+        <article>
+            <pre class="prettyprint source linenums"><code>"use strict"
+
+/**
+ * Builders
+ * @namespace builders
+ */
+
+const init = ({ lib, swLib, swFamilies }) => {
+    const builders = {
+        // Dependent on libs and utils
+        columns: require('./columns').init({ lib, swLib, swFamilies }),
+        walls: require('./walls').init({ lib, swLib, swFamilies }),
+        arches: require('./arches').init({ lib, swLib, swFamilies }),
+    }
+
+    builders.entryways = require('./entryways').init({ lib, swLib: { ...swLib, builders }, swFamilies });
+    builders.roofs = require('./roofs').init({ lib, swLib: { ...swLib, builders }, swFamilies });
+    builders.buttress = require('./buttress').init({ lib, swLib: { ...swLib, builders }, swFamilies });
+
+    return builders;
+}
+
+module.exports = { init };
+</code></pre>
+        </article>
     </section>
-
-
 
 
 
