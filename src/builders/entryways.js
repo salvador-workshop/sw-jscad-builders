@@ -70,7 +70,6 @@ const entrywayBuilder = ({ lib, swLib }) => {
                 trimUnitDepth: opts.trimUnitDepth,
             });
             const wall1Dims = measureDimensions(wall1);
-            console.log(wall1Dims);
 
             const wall2 = walls.buildWall({
                 height: wall2Specs[2],
@@ -107,7 +106,6 @@ const entrywayBuilder = ({ lib, swLib }) => {
             });
             archTrimProfile = rotate([0, 0, Math.PI * 1.5], archTrimProfile);
             const archTrimProfileSpecs = measureDimensions(archTrimProfile);
-            console.log(`archTrimProfileSpecs = ${archTrimProfileSpecs}`)
             const archRadFactor = opts.archRadFactor || 0.75;
             const thinWallThickness = opts.wallThickness - (archTrimProfileSpecs[1] * 2);
 

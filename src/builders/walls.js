@@ -87,7 +87,6 @@ const wallBuilder = ({ lib, swLib, swFamilies }) => {
          * @returns Wall geometry
         */
         buildWall: (opts) => {
-            console.log(`wallBuilder.build() -- opts = ${JSON.stringify(opts)}`);
             const {
                 baseUnits,
                 dadoUnits,
@@ -106,7 +105,6 @@ const wallBuilder = ({ lib, swLib, swFamilies }) => {
             const tFamilyAranea = trimAranea.buildTrimFamily({ unitHeight: opts.trimUnitHeight, unitDepth: opts.trimUnitDepth });
 
             const dadoHt = opts.dadoHeight || opts.height * (1 - PHI_INV);
-            // console.log(`    dadoHt = ${JSON.stringify(dadoHt)}`);
             // has to be adjusted or it clips through trimwork
             const dadoHtAdj = dadoHt - (opts.trimUnitHeight * (dadoUnits + 0.5))
             const dadoAdj = dadoUnits * 2 * opts.trimUnitDepth;

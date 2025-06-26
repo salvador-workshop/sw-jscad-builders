@@ -71,7 +71,6 @@ const roofBuilder = ({ lib, swLib, swFamilies }) => {
         trimFamily = 'Aranea',
         trimUnitSize,
     }) => {
-        console.log(`buildGableRoof() roofSpanSize = ${JSON.stringify(roofSpanSize)}`);
         const basicRoofSpecs = getBasicRoofSpecs({ roofPitch, roofSpanSize });
         const otherAxis = roofAxis === 'x' ? 'y' : 'x';
         const mainAxisIdx = roofAxis === 'x' ? 0 : 1;
@@ -80,9 +79,6 @@ const roofBuilder = ({ lib, swLib, swFamilies }) => {
         if (roofAxis === 'y') {
             roofSpanHalfSize = [roofSpanSize[0] / 2, roofSpanSize[1]];
         }
-        console.log(`    roofAxis = ${JSON.stringify(roofAxis)}, roofOpts = ${JSON.stringify(roofOpts)}`);
-        console.log(`    basicRoofSpecs = ${JSON.stringify(basicRoofSpecs)}`);
-        console.log(`    roofSpanSize = ${JSON.stringify(roofSpanSize)}, roofSpanHalfSize = ${JSON.stringify(roofSpanHalfSize)}`);
 
         const halfRoofOpts = [...roofOpts, 'gableMode'];
         const halfOffset = roofAxis === 'x' ?
@@ -160,13 +156,9 @@ const roofBuilder = ({ lib, swLib, swFamilies }) => {
         shingleLayerThickness,
         shingleSheathingThickness,
     }) => {
-        console.log(`buildShedRoof() roofSpanSize = ${JSON.stringify(roofSpanSize)}`);
         const basicRoofSpecs = getBasicRoofSpecs({ roofPitch, roofSpanSize });
         const mainAxisIdx = roofAxis === 'x' ? 0 : 1;
         const otherAxisIdx = mainAxisIdx === 0 ? 1 : 0;
-        console.log(`    roofAxis = ${JSON.stringify(roofAxis)}, roofOpts = ${JSON.stringify(roofOpts)}`);
-        console.log(`    basicRoofSpecs = ${JSON.stringify(basicRoofSpecs)}`);
-        console.log(`    mainAxisIdx = ${JSON.stringify(mainAxisIdx)}, otherAxisIdx = ${JSON.stringify(otherAxisIdx)}`);
 
         const roofSpan = roofSpanSize[otherAxisIdx];
         const axisSpan = roofSpanSize[mainAxisIdx];
@@ -181,7 +173,6 @@ const roofBuilder = ({ lib, swLib, swFamilies }) => {
 
         let roofSupport = align({ modes: ['min', 'min', 'min'] }, basePrism);
         if (!roofOpts.includes('solid')) {
-            console.log('gburehrhe')
             const wallThicknessOffset = roofOpts.includes('gableMode') ? 1 : 2;
             let roomSize = [
                 roofSpanSize[mainAxisIdx] - (2 * wallThickness),

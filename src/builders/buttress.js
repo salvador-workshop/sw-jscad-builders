@@ -36,13 +36,6 @@ const buttressBuilder = ({ lib, swLib }) => {
             trimOpts,
             trimSides,
         }) => {
-            console.log(height,
-                thickness,
-                width,
-                buttressOpts,
-                trimOpts,
-                trimSides,);
-
             const baseShape = align({ modes: ['min', 'min', 'max'] }, cuboid({ size: [thickness, width, height] }));
 
             const rooflet = roofs.buildShedRoof({
@@ -78,13 +71,6 @@ const buttressBuilder = ({ lib, swLib }) => {
             trimOpts,
             trimSides,
         }) => {
-            console.log(height,
-                thickness,
-                bottomWidth,
-                topWidth,
-                buttressOpts,
-                trimOpts,
-                trimSides,);
             const midHt = midHeight || height * constants.PHI_INV;
             const baseShape = align(
                 { modes: ['min', 'min', 'min'], relativeTo: [0, 0, -midHt] },
