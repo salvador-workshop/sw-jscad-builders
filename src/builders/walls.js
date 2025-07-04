@@ -12,7 +12,7 @@ const wallBuilder = ({ lib, swLib, swFamilies }) => {
     const { measureDimensions, measureBoundingBox } = lib.measurements;
 
     const { moulds } = swLib.details
-    const { trimAranea } = swFamilies
+    const { aranea } = swFamilies.trim
     const { PHI_INV } = swLib.core.constants
 
     const crownTrim = ({ totalThickness, totalLength, trimProfile }) => {
@@ -31,7 +31,7 @@ const wallBuilder = ({ lib, swLib, swFamilies }) => {
     }
 
     const getEntryTrimForDadoUnits = ({ dadoUnits, trimUnitHeight, trimUnitDepth }) => {
-        const tFamilyAranea = trimAranea.buildTrimFamily({ unitHeight: trimUnitHeight, unitDepth: trimUnitDepth });
+        const tFamilyAranea = aranea.buildTrimFamily({ unitHeight: trimUnitHeight, unitDepth: trimUnitDepth });
         let entryTrim = tFamilyAranea.crown.small;
         if (dadoUnits === 1) {
             entryTrim = tFamilyAranea.crown.medium;
@@ -102,7 +102,7 @@ const wallBuilder = ({ lib, swLib, swFamilies }) => {
                 size: [opts.length, opts.thickness, opts.height],
             }));
 
-            const tFamilyAranea = trimAranea.buildTrimFamily({ unitHeight: opts.trimUnitHeight, unitDepth: opts.trimUnitDepth });
+            const tFamilyAranea = aranea.buildTrimFamily({ unitHeight: opts.trimUnitHeight, unitDepth: opts.trimUnitDepth });
 
             const dadoHt = opts.dadoHeight || opts.height * (1 - PHI_INV);
             // has to be adjusted or it clips through trimwork

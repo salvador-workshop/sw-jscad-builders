@@ -68,7 +68,7 @@ const roofBuilder = ({ lib, swLib, swFamilies }) => {
         roofAxis = 'x',
         roofOpts = [],
         wallThickness,
-        trimFamily = 'Aranea',
+        trimFamily = 'aranea',
         trimUnitSize,
     }) => {
         const basicRoofSpecs = getBasicRoofSpecs({ roofPitch, roofSpanSize });
@@ -151,7 +151,7 @@ const roofBuilder = ({ lib, swLib, swFamilies }) => {
         roofAxis = 'x',
         roofOpts = [],
         wallThickness,
-        trimFamily = 'Aranea',
+        trimFamily = 'aranea',
         trimUnitSize,
         shingleLayerThickness,
         shingleSheathingThickness,
@@ -188,7 +188,7 @@ const roofBuilder = ({ lib, swLib, swFamilies }) => {
 
         // Roof Assembly
 
-        const trFamily = swFamilies[`trim${trimFamily}`].buildTrimFamily({ unitHeight: trimUnitSize[1], unitDepth: trimUnitSize[0] });
+        const trFamily = swFamilies.trim[trimFamily].buildTrimFamily({ unitHeight: trimUnitSize[1], unitDepth: trimUnitSize[0] });
         const bottomTrimProfile = trFamily.crown.extraSmall;
 
         const bTrimRafterSpecs = [2 * trimUnitSize[0] + roofHypot, 2 * trimUnitSize[0] + axisSpan];
