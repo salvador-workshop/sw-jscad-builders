@@ -1,6 +1,6 @@
 {
   "name": "sw-jscad-builders",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Builder functions for Salvador Workshop's JSCAD utilities and toolkit.",
   "homepage": "",
   "repository": {
