@@ -5,7 +5,7 @@
  * @namespace builders.arches
  */
 
-const archBuilder = ({ lib }) => {
+const archBuilder = ({ lib, swLib }) => {
   const { path2, geom2 } = lib.geometries
   const { extrudeRotate } = lib.extrusions
   const { arc, cuboid } = lib.primitives

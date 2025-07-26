@@ -9,7 +9,6 @@ const buttressBuilder = ({ lib, swLib }) => {
     const { union, subtract } = lib.booleans;
     const { cuboid } = lib.primitives;
     const { align, translate } = lib.transforms;
-    const { measureBoundingBox } = lib.measurements;
 
     const { constants } = swLib.core;
     const { roofs } = swLib.builders;

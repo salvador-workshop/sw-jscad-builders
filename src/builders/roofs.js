@@ -12,11 +12,11 @@ const roofBuilder = ({ lib, swLib, swFamilies }) => {
     const { extrudeLinear } = lib.extrusions;
     const { measureDimensions } = lib.measurements;
 
-    const { moulds } = swLib.details;
+    const { mouldings } = swLib.models.prefab;
 
     const bottomTrim = ({ axisLength, rafterLength, trimProfile }) => {
         const profileDims = measureDimensions(trimProfile);
-        return moulds.cuboidMoulding({ size: [rafterLength, axisLength, profileDims[1]] }, trimProfile);
+        return mouldings.cuboidMoulding({ size: [rafterLength, axisLength, profileDims[1]] }, trimProfile);
     }
 
     const getBasicRoofSpecs = ({ roofSpanSize, roofPitch }) => {

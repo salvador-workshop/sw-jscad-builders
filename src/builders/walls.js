@@ -9,25 +9,25 @@ const wallBuilder = ({ lib, swLib, swFamilies }) => {
     const { union, subtract } = lib.booleans
     const { align } = lib.transforms
     const { cuboid } = lib.primitives
-    const { measureDimensions, measureBoundingBox } = lib.measurements;
+    const { measureDimensions } = lib.measurements;
 
-    const { moulds } = swLib.details
+    const { mouldings } = swLib.models.prefab
     const { aranea } = swFamilies.trim
     const { PHI_INV } = swLib.core.constants
 
     const crownTrim = ({ totalThickness, totalLength, trimProfile }) => {
         const profileDims = measureDimensions(trimProfile);
-        return moulds.cuboidMoulding({ size: [totalLength, totalThickness, profileDims[1]] }, trimProfile);
+        return mouldings.cuboidMoulding({ size: [totalLength, totalThickness, profileDims[1]] }, trimProfile);
     }
 
     const dadoTrim = ({ totalThickness, totalLength, trimProfile }) => {
         const profileDims = measureDimensions(trimProfile);
-        return moulds.cuboidMoulding({ size: [totalLength, totalThickness, profileDims[1]] }, trimProfile);
+        return mouldings.cuboidMoulding({ size: [totalLength, totalThickness, profileDims[1]] }, trimProfile);
     }
 
     const baseTrim = ({ totalThickness, totalLength, trimProfile }) => {
         const profileDims = measureDimensions(trimProfile);
-        return moulds.cuboidMoulding({ size: [totalLength, totalThickness, profileDims[1]] }, trimProfile);
+        return mouldings.cuboidMoulding({ size: [totalLength, totalThickness, profileDims[1]] }, trimProfile);
     }
 
     const getEntryTrimForDadoUnits = ({ dadoUnits, trimUnitHeight, trimUnitDepth }) => {
